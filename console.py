@@ -6,6 +6,9 @@ class HBNBCommand(cmd.Cmd):
     intro = 'Welcome to the turtle shell.   Type help or ? to list commands.\n'
     prompt = '(hbnb)'
 
+    def do_quit(self, line):
+	return True
+
     def do_EOF(self, line):
         return True
     
