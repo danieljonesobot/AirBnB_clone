@@ -10,7 +10,7 @@ from models import storage
 class HBNBCommand(cmd.Cmd):
     """ this is the cmd class
     """
-    intro = 'Welcome to the turtle shell.   Type help or ? to list commands.\n'
+    intro = 'Welcome to the command interpreter.   Type help or ? to list commands.\n'
     prompt = '(hbnb)'
     __theclasses = {
             "BaseModel",
