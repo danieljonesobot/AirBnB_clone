@@ -3,7 +3,7 @@
 import cmd
 
 class HBNBCommand(cmd.Cmd):
-    intro = 'Welcome to the turtle shell.   Type help or ? to list commands.\n'
+    intro = 'Welcome to the command interpreter.   Type help or ? to list commands.\n'
     prompt = '(hbnb)'
 
     def do_quit(self, line):
