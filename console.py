@@ -14,6 +14,7 @@ class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb)'
     __theclasses = {
             "BaseModel",
+            "User",
             }
 
     def do_quit(self, line):
@@ -37,9 +38,8 @@ class HBNBCommand(cmd.Cmd):
         elif argus[0] not in HBNBCommand.__theclasses:
             print("** class doesn't exist **")
         else:
-            obj = storage.classes[argus[0]]()
-            obj.save()
-            print(obj.id)
+            print(eval(argus[0])().id)
+            storage.save()
 
     def do_show(self, ln):
         """ prints the string representation of an instance
@@ -61,7 +61,7 @@ class HBNBCommand(cmd.Cmd):
         """
         this module destroys a class instance
         """
-        argum = parse(ln)
+        argum = ln.split()
         dicti = storage.all()
         if len(argum) == 0:
             print("** class name missing **")
@@ -93,6 +93,43 @@ class HBNBCommand(cmd.Cmd):
                 elif len(argum) == 0:
                     object_.append(o.__str__())
             print(object_)
+
+    def do_update(self, line):
+        """ method to define the action update and instance"""
+        args = line.split()
+        class_name = args[0]
+        instance_id = args[1]
+        attribute_name = args[2]
+        attribute_value = args[2]
+        key = "{}.{}".format(class_name, instance_id)
+        instance = storage.all()[key]
+
+        if len(args) == 0:
+            print("** class name missing **")
+            return
+
+        if class_name not in HBNBCommand.__theclasses:
+            print("** class doesn't exist **")
+            return
+
+        if len(args) < 2:
+            print("** instance id missing **")
+            return
+
+        if key not in storage.all().keys():
+            print("** no instance found **")
+            return
+        if len(args) < 3:
+            print("** attribute name missing **")
+            return
+
+        if len(args) < 4:
+            print("** value missing **")
+            return
+
+        setattr(instance, attribute_name, attribute_value)
+        instance.save()
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
