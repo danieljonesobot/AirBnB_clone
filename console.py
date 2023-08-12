@@ -10,7 +10,6 @@ from models import storage
 class HBNBCommand(cmd.Cmd):
     """ this is the cmd class
     """
-    intro = 'Welcome to the command interpreter.   Type help or ? to list commands.\n'
     prompt = '(hbnb)'
     __theclasses = {
             "BaseModel",
@@ -18,7 +17,7 @@ class HBNBCommand(cmd.Cmd):
             }
 
     def do_quit(self, line):
-        """ this will exit the program """
+        """Quit command to exit the program"""
         return True
 
     def do_EOF(self, line):
@@ -66,7 +65,7 @@ class HBNBCommand(cmd.Cmd):
         if len(argum) == 0:
             print("** class name missing **")
             return
-        elif argum[0] not in HBNBCommand.__classes:
+        elif argum[0] not in HBNBCommand.__theclasses:
             print("** class doesn't exist **")
             return
         elif len(argum) == 1:
@@ -100,7 +99,7 @@ class HBNBCommand(cmd.Cmd):
         class_name = args[0]
         instance_id = args[1]
         attribute_name = args[2]
-        attribute_value = args[2]
+        attribute_value = args[3]
         key = "{}.{}".format(class_name, instance_id)
         instance = storage.all()[key]
 
