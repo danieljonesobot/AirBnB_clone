@@ -5,6 +5,7 @@
 import json
 from models.base_model import BaseModel
 
+
 class FileStorage:
     """ this class stores the json to a file path
     """
@@ -23,7 +24,7 @@ class FileStorage:
         self.__objects[key] = obj
 
     def save(self):
-        """ serializes object and sves to file 
+        """ serializes object and sves to file
         """
         obj_ser = {key: obj.to_dict() for key, obj in self.__objects.items()}
         with open(self.__file_path, 'w') as f:
