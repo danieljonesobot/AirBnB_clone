@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 
-"""In this script, we define class called User to inherits from 
+"""this module defines the class called User which inherits from
 parent class BaseModel
 """
 
 from base_model import BaseModel
+
 
 class User(BaseModel):
     """constructor"""
@@ -13,6 +14,3 @@ class User(BaseModel):
         self.password = ''
         self.first_name = ''
         self.last_name = ''
-
-	
-

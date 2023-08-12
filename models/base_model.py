@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-""" This this the base model that defines 
+""" This this the base model that defines
     all common attributes/methods for the other classes:
 """
 import models
 from datetime import datetime
 from uuid import uuid4
+
 
 class BaseModel:
     """ this is the base model class
