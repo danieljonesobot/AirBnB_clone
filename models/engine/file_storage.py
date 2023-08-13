@@ -11,6 +11,7 @@ from models.place import Place
 from models.review import Review
 from models.state import State
 
+
 class FileStorage:
     """ this class stores the json to a file path
     Private attributes:
