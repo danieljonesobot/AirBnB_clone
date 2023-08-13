@@ -90,20 +90,45 @@ class HBNBCommand(cmd.Cmd):
             del dicti["{}.{}".format(argum[0], argum[1])]
             storage.save()
 
-    def do_all(self, ln):
-        """ this method displays al the instances of a class """
-        argum = ln.split()
-        if len(argum) > 0 and argum[0] not in HBNBCommand.__theclasses:
+    def do_all(self, line):
+        """ this command retrieves all instances of a class """
+        args = line.split()
+        if len(args) > 0 and args[0] not in HBNBCommand.__theclasses:
             print("** class doesn't exist **")
         else:
-            object_ = []
-            for o in storage.all().values():
-                sl = o.__class__.__name__
-                if len(argum) > 0 and argum[0] == sl:
-                    object_.append(o.__str__())
-                elif len(argum) == 0:
-                    object_.append(o.__str__())
-            print(object_)
+            object_list = []
+            for instance in storage.all().values():
+                if len(args) > 0 and args[0] == instance.__class__.__name__:
+                    object_list.append(instance.__str__())
+                elif len(args) == 0:
+                    object_list.append(instance.__str__())
+            print(object_list)
+
+    def default(self, line):
+        """ this function handles when a command isn't recognized """
+        command_mapping = {
+            "all": self.do_all,
+            "destroy": self.do_destroy,
+            "update": self.do_update,
+            "show": self.do_show,
+            "count": self.do_count
+        }
+
+        parts = line.split('.')
+        if len(parts) == 2:
+            class_name, method_and_args = parts
+            method_match = re.match(r'^(\w+)\((.*)\)$', method_and_args)
+
+            if method_match:
+                method_name = method_match.group(1)
+                method_args = method_match.group(2)
+
+                if method_name in command_mapping:
+                    full_command = f"{class_name} {method_args}"
+                    return command_mapping[method_name](full_command)
+
+        print("*** Unknown syntax: {}".format(line))
+        return False
 
     def do_update(self, line):
         """ method to define the action update and instance"""
@@ -140,6 +165,18 @@ class HBNBCommand(cmd.Cmd):
 
         setattr(instance, attribute_name, attribute_value)
         instance.save()
+
+    def do_count(self, line):
+        """ this action retrives the number of instances of a class """
+        args = line.split()
+        a = storage.all().values()
+        if len(args) > 0 and args[0] in HBNBCommand.__theclasses:
+            ce = args[0]
+            c = sum(1 for i in a if i.__class__.__name__ == ce)
+            print(c)
+        else:
+            print("** class doesn't exist **")
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
