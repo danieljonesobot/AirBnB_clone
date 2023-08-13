@@ -14,6 +14,11 @@ class HBNBCommand(cmd.Cmd):
     __theclasses = {
             "BaseModel",
             "User",
+            "Amenity",
+            "City",
+            "Place",
+            "Review",
+            "State"
             }
 
     def do_quit(self, line):
