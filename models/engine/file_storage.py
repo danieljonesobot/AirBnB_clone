@@ -13,6 +13,9 @@ from models.state import State
 
 class FileStorage:
     """ this class stores the json to a file path
+    Private attributes:
+    __file_path(string): refers to the name of the file to save objects to
+    __objects (dictiionary): refers to a dictionary of instantiated objects
     """
     __file_path = "file.json"
     __objects = {}
