@@ -20,7 +20,6 @@ class TestInit(unittest.TestCase):
     def test_1_missing_args(self):
         self.assertEqual(BaseModel, type(BaseModel()))
 
-
     def test_3(self):
         self.assertEqual(str, type(BaseModel().id))
 
@@ -95,6 +94,7 @@ class Testsave(unittest.TestCase):
         base = BaseModel()
         with self.assertRaises(TypeError):
             base.save(None)
+
 
 class TestDict(unittest.TestCase):
     """Unittest to test the dict method ."""

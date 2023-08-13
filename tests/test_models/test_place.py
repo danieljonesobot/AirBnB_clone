@@ -6,6 +6,7 @@ import unittest
 import models
 from datetime import datetime
 
+
 class Test_place_instancing(unittest.TestCase):
     """ tis calss test the inistacning of the place class """
 

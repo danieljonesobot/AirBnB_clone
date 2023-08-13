@@ -56,6 +56,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             insts = dictObj["{}.{}".format(argum[0], argum[1])]
             print(insts)
+
     def do_destroy(self, ln):
         """
         this module destroys a class instance
@@ -128,7 +129,6 @@ class HBNBCommand(cmd.Cmd):
 
         setattr(instance, attribute_name, attribute_value)
         instance.save()
-
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

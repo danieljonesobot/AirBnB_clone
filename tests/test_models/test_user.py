@@ -13,6 +13,7 @@ import models
 from datetime import datetime
 from time import sleep
 
+
 class TestInstantiation(unittest.TestCase):
     """ This class hodls the unitest for instance of a class."""
 
@@ -172,4 +173,3 @@ class TestToDict(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
