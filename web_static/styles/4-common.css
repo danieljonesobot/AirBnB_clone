@@ -1,0 +1,19 @@
+/* body styling */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+    margin: 30px 0px 30px 150px;
+    /* border: 1px solid red; */
+    height: 150px;
+}
