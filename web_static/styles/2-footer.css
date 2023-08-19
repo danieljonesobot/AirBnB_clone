@@ -1,0 +1,14 @@
+/* Footer styling */
+
+footer {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: center;
+      align-items: center;
+      background-color: #00FF00;
+      height: 60px;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      line-height: 60px
+  }
