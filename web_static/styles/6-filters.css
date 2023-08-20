@@ -9,8 +9,8 @@
     display: flex;
     align-items: center;
     padding-right: 20px;
-
 }
+
 
 .btn1 {
     font-size: 18px;
@@ -24,9 +24,11 @@
 }
 
 
+
 .btn1:hover {
     opacity: 90%;
 }
+
 
 
 div h3 {
@@ -34,11 +36,14 @@ div h3 {
 }
 
 
+
 div h4 {
     font-weight: 400;
     font-size: 14px;
     margin-top: -14px;
 }
+
+
 
 .locations {
     height: 100%;
@@ -52,9 +57,11 @@ div h4 {
     font-size: 16px;
 }
 
+
 ul {
     list-style-type: none;
 }
+
 
 .amenities {
     height: 100%;
@@ -75,6 +82,7 @@ ul {
     margin-left: -50px;
     margin-top: -10px;
 }
+
 
 .locations:hover .popover {
     display: block;
