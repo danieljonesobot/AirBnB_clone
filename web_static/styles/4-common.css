@@ -1,4 +1,4 @@
-/* body styling */
+/* body and container styling */
 
 body {
     margin: 0;
@@ -8,12 +8,8 @@ body {
 
 
 .container {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
     max-width: 1000px;
-    margin: 30px 0px 30px 150px;
-    /* border: 1px solid red; */
-    height: 150px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
