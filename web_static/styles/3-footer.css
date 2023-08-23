@@ -10,6 +10,6 @@ footer {
     width: 100%;
     border-top: 1px solid #CCCCCC;
     position: absolute;
-    bottom: 0;
+    /* bottom: 0; */
     line-height: 60px
 }
